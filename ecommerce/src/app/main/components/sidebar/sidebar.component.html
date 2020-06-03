@@ -1,0 +1,19 @@
+<ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+  <li nz-menu-item routerLink="dashboard"><i nz-icon nzType="dashboard"></i><span>Dashboard</span></li>
+  <li nz-submenu nzTitle="Produtos" nzIcon="shop">
+    <ul>
+      <li nz-menu-item nzMatchRouter>
+        <a routerLink="category">Categorias</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a routerLink="product">Produtos</a>
+      </li>
+    </ul>
+  </li>
+  <li nz-submenu nzTitle="Administração" nzIcon="setting">
+    <ul>
+      <li nz-menu-item nzMatchRouter><a routerLink="user">Usuários</a></li>
+      <li nz-menu-item nzMatchRouter><a>Configurações</a></li>
+    </ul>
+  </li>
+</ul>

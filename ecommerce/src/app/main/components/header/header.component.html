@@ -1,0 +1,16 @@
+<div class="app-header">
+  <div class="header-trigger">
+    <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+      (click)="changeCollapse.emit(!isCollapsed)"></i>
+  </div>
+  <ul nz-menu [nzMode]="'horizontal'" class="user-menu">
+    <li nz-submenu>
+      <span title><i nz-icon nzType="user" theme="outline"></i> Genesson Sauer </span>
+      <ul>
+        <li nz-menu-item><i nz-icon nzType="profile" theme="outline"></i>Perfil</li>
+        <li nz-menu-item><i nz-icon nzType="tool" theme="outline"></i>Configurações</li>
+        <li nz-menu-item><i nz-icon nzType="logout" theme="outline"></i>Sair</li>
+      </ul>
+    </li>
+  </ul>
+</div>

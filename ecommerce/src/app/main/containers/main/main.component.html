@@ -1,0 +1,14 @@
+<nz-layout>
+  <nz-sider nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+    <app-sidebar [isCollapsed]="isCollapsed"></app-sidebar>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <app-header [isCollapsed]="isCollapsed" (changeCollapse)="isCollapsed = $event"></app-header>
+    </nz-header>
+    <nz-content>
+      <app-content></app-content>
+    </nz-content>
+    <nz-footer>© 2020 Todos os direitos reservados.</nz-footer>
+  </nz-layout>
+</nz-layout>
