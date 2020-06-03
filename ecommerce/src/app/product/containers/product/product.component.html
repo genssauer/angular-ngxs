@@ -1,0 +1,40 @@
+<app-page-header [title]="'Produtos'"></app-page-header>
+
+<div class="app-content app-products">
+  <app-header-button [title]="'Produtos'" [buttons]="[{label: 'Adicionar Produto'}]" (clickButton)="openModal()">
+  </app-header-button>
+  <nz-table #dataTable [nzData]="productsCollection$ | async">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Imagem</th>
+        <th>Título</th>
+        <th>Categoria</th>
+        <th>Preço</th>
+        <th>Status</th>
+        <th>Opções</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let item of dataTable.data">
+        <tr>
+          <td>{{ item?.id }}</td>
+          <td><img [src]="item?.file?.url" class="image"></td>
+          <td>{{ item?.title }}</td>
+          <td>{{ item?.category?.title }}</td>
+          <td>{{ item?.price | currency:'R$' }}</td>
+          <td>
+            <nz-switch [(ngModel)]="item.status" [nzDisabled]="true"></nz-switch>
+          </td>
+          <td>
+            <a (click)="selectProduct(item)"><i nz-icon [nzType]="'edit'" [nzTheme]="'twotone'"
+                [nzTwotoneColor]="'#4479D8'"></i></a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a (click)="confirmProduct(item)"><i nz-icon [nzType]="'delete'" [nzTheme]="'twotone'"
+                [nzTwotoneColor]="'#BB4D4D'"></i></a>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </nz-table>
+</div>
