@@ -1,0 +1,8 @@
+<div class="header-button-content">
+    <div class="header-title">
+        <h2 class="title" [style.font-size]="fontSizeTitle">{{ title }}</h2>
+    </div>
+    <div class="header-buttons">
+        <button nz-button nzType="primary" (click)="clickButton.emit(button?.name)" *ngFor="let button of buttons" class="button">{{ button?.label }}</button>
+    </div>
+</div>
