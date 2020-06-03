@@ -1,0 +1,68 @@
+.store-home-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 20px;
+
+  .item {
+    border: 1px solid #c6c6c5;
+    border-radius: 4px;
+    margin-bottom: 20px;
+
+    img {
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #000000;
+      padding: 8px;
+    }
+
+    .item-footer {
+      padding: 0 8px 8px 8px;
+      display: flex;
+      flex-direction: column;
+
+      .item-amount {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 8px;
+
+        .was {
+          font-size: 1.9rem;
+          color: #ababab;
+          text-decoration: line-through;
+
+          small {
+            font-size: 1.3rem;
+          }
+        }
+
+        .now {
+          font-size: 2.4rem;
+          font-weight: bold;
+          color: #8bc34a;
+
+          small {
+            font-size: 1.8rem;
+          }
+        }
+      }
+
+      .item-conditions {
+        display: flex;
+        flex-direction: column;
+        place-content: center;
+
+        .cash {
+          color: #000000;
+        }
+
+        .parceled {
+          color: #9c9c9c;
+        }
+      }
+    }
+  }
+}

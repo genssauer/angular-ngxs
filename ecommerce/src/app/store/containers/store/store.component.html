@@ -1,0 +1,8 @@
+<app-store-header [categories]="categoriesCollection$ | async" 
+                  (clickCategory)="changeCategory($event)"></app-store-header>
+
+<div class="container">
+    <app-store-content></app-store-content>
+</div>
+
+<app-store-footer></app-store-footer>

@@ -1,0 +1,31 @@
+
+<div class="store-header-container">
+  <div class="store-header">
+    <div class="search">
+      <input type="text" placeholder="Digite o nome do produto…" />
+      <button class="btn-submit">Pesquisar</button>
+    </div>
+    <div class="logo">
+      <img src="assets/logo.png" alt="MJV" />
+    </div>
+    <button class="btn-register">Login ou cadastre-se</button>
+    <button class="btn-cart">
+      Carrinho
+      <i nz-icon nzType="shopping-cart" nzTheme="outline" style="color: #b4b4b4; font-size: 34px"></i>
+      <div class="badge">2</div>
+    </button>
+  </div>
+</div>
+<div class="store-menu">
+  <div class="menu-section" [ngClass]="{'on' : menu}">
+    <div class="menu-toggle" (click)="menu=!menu" role="button" tabIndex={0}>
+      <div class="one"></div>
+      <div class="two"></div>
+      <div class="three"></div>
+    </div>
+    <ul>
+      <li>HOME</li>
+      <li *ngFor="let category of categories" (click)="clickCategory.emit(category)">{{ category.title }}</li>
+    </ul>
+  </div>
+</div>
