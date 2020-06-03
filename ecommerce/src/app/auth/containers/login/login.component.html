@@ -1,0 +1,32 @@
+<nz-layout class="app-layout">
+  <nz-content>
+    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+      <div class="sidebar-logo">
+        <img src="assets/logo.png" alt="" />
+      </div>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Por favor informe seu e-mail!">
+          <nz-input-group nzSize="large" nzPrefixIcon="user">
+            <input type="email" nz-input formControlName="email" placeholder="E-mail"/>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Por favor informe sua senha!">
+          <nz-input-group nzSize="large" nzPrefixIcon="lock">
+            <input type="password" nz-input formControlName="password" placeholder="Senha"/>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <label nz-checkbox formControlName="remember">
+            <span>Lembrar-me</span>
+          </label>
+          <a class="login-form-forgot" class="login-form-forgot">Esqueceu a senha?</a>
+          <button nz-button class="login-form-button" nzSize="large" [nzType]="'primary'">Login</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </nz-content>
+</nz-layout>
