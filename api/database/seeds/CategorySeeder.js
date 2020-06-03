@@ -11,10 +11,27 @@
 */
 
 /** @type {import('@adonisjs/lucid/src/Factory')} */
-const Factory = use('Factory')
+const CategoryModel = use('App/Models/Category')
 
 class CategorySeeder {
   async run () {
+    await CategoryModel.create({
+      title: 'Hardware',
+      description: 'Hardware',
+      status: true
+    })
+
+    await CategoryModel.create({
+      title: 'Smartphones',
+      description: 'Smartphones',
+      status: true
+    })
+
+    await CategoryModel.create({
+      title: 'Periféricos',
+      description: 'Periféricos',
+      status: true
+    })
   }
 }
 
