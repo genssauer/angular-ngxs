@@ -1,0 +1,32 @@
+<app-page-header [title]="'Usuários'"></app-page-header>
+
+<div class="app-content">
+  <app-header-button [title]="'Usuários'" [buttons]="[{label: 'Adicionar Usuário'}]" (clickButton)="openModal()">
+  </app-header-button>
+  <nz-table #dataTable [nzData]="usersCollection$ | async">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Usuário</th>
+        <th>E-mail</th>
+        <th>Opções</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let item of dataTable.data">
+        <tr>
+          <td>{{ item?.id }}</td>
+          <td>{{ item?.username }}</td>
+          <td>{{ item?.email }}</td>
+          <td>
+            <a (click)="selectUser(item)"><i nz-icon [nzType]="'edit'" [nzTheme]="'twotone'"
+                [nzTwotoneColor]="'#4479D8'"></i></a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a (click)="confirmUser(item)"><i nz-icon [nzType]="'delete'" [nzTheme]="'twotone'"
+                [nzTwotoneColor]="'#BB4D4D'"></i></a>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </nz-table>
+</div>

@@ -1,0 +1,43 @@
+<div>
+  <form nz-form [formGroup]="formGroup">
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="username" nzRequired>Nome</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Informe o nome!">
+        <input nz-input formControlName="username">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="email" nzRequired>E-mail</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Informe o e-mail!">
+        <input nz-input formControlName="email">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Senha</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Informe a senha!">
+        <nz-input-group [nzSuffix]="passwordTemplate">
+          <input [type]="passwordVisible ? 'text' : 'password'" nz-input formControlName="password" />
+        </nz-input-group>
+        <ng-template #passwordTemplate>
+          <i nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+            (click)="passwordVisible = !passwordVisible"></i>
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password_confirmation" nzRequired>Confirmação</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Informe a confirmação!">
+        <nz-input-group [nzSuffix]="confirmTemplate">
+          <input [type]="confirmVisible ? 'text' : 'password'" nz-input formControlName="password_confirmation" />
+        </nz-input-group>
+        <ng-template #confirmTemplate>
+          <i nz-icon [nzType]="confirmVisible ? 'eye-invisible' : 'eye'" (click)="confirmVisible = !confirmVisible"></i>
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>
+<div *nzModalFooter>
+  <button nz-button nzType="default" (click)="cancel()">Cancelar</button>
+  <button nz-button nzType="primary" [nzLoading]="isLoading$ | async" (click)="saveUser()">Salvar</button>
+</div>
