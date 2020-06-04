@@ -23,15 +23,31 @@
         list-style: none;
 
         li {
-          font-size: 1.4rem;
-          font-weight: 500;
-          color: #1c1c1b;
-          line-height: 2.2em;
           display: flex;
           align-items: center;
+          font-size: 1.4rem;
+          font-weight: 500;
+          line-height: 2.2em;
+          cursor: pointer;
 
-          svg {
+          a {
+            font-size: 1.4rem;
+            color: #1c1c1b;
+            font-weight: 500;
+            line-height: 2.2em;
+            cursor: pointer;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+          i {
             margin-right: 5px;
+          }
+
+          &:hover {
+            text-decoration: underline;
           }
         }
       }

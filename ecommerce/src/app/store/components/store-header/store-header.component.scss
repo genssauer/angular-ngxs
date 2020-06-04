@@ -19,7 +19,7 @@
   .search {
     input {
       min-width: 220px;
-      min-height: 40px;
+      min-height: 42px;
       font-size: 1.2rem;
       color: #757575;
       border: 1px solid #e0e0e0;
@@ -44,6 +44,10 @@
       color: #ffffff;
       border-left: 0;
       border-color: #60489D;
+
+      &:hover {
+        color: #000000;
+      }
     }
   }
 
@@ -114,6 +118,10 @@
       font-weight: bold;
       color: #ffffff;
       cursor: pointer;
+      
+      &:hover {
+        color: #000000;
+      }
     }
   }
 

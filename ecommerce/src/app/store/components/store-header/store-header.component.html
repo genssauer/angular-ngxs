@@ -2,7 +2,7 @@
 <div class="store-header-container">
   <div class="store-header">
     <div class="search">
-      <input type="text" placeholder="Digite o nome do produto…" />
+      <input type="text" [(ngModel)]="this.storeSandbox.filterTerm" placeholder="Digite o nome do produto…" />
       <button class="btn-submit">Pesquisar</button>
     </div>
     <div class="logo">
@@ -24,7 +24,7 @@
       <div class="three"></div>
     </div>
     <ul>
-      <li>HOME</li>
+      <li (click)="clickCategory.emit(0)">Home</li>
       <li *ngFor="let category of categories" (click)="clickCategory.emit(category)">{{ category.title }}</li>
     </ul>
   </div>

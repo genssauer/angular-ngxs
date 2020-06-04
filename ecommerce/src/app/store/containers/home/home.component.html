@@ -1,20 +1,2 @@
-<div class="store-home-container">
-  <div class="item" *ngFor="let product of productsCollection$ | async">
-    <img [src]="product?.file?.url" alt="product?.title" />
-    <h1>{{ product?.title }}</h1>
-    <div class="item-footer">
-      <div class="item-amount">
-        <span class="was">
-          <small>R$</small>{{ product?.price }}
-        </span>
-        <span class="now">
-          <small>R$</small>{{ product?.price }}
-        </span>
-      </div>
-      <div class="item-conditions">
-        <span class="cash">à vista no cartão</span>
-        <span class="parceled">ou em 12x de 91,65</span>
-      </div>
-    </div>
-  </div>
-</div>
+<app-store-products [products]="productsCollection$ | async | filterProducts:storeSandbox.filterTerm" 
+                    (clickProduct)="openProduct($event)"></app-store-products>

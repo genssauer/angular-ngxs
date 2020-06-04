@@ -1,34 +1,25 @@
 <div class="footer-wrapper">
   <div class="container">
     <div class="footer-item">
-      <h1>Sobre</h1>
-      <ul>
-        <li>Menu 1</li>
-        <li>Menu 2</li>
-        <li>Menu 3</li>
-        <li>Menu 4</li>
-      </ul>
-    </div>
-    <div class="footer-item">
       <h1>Menu</h1>
       <ul>
-        <li>Menu 1</li>
-        <li>Menu 2</li>
-        <li>Menu 3</li>
-        <li>Menu 4</li>
+        <li *ngFor="let category of categories" (click)="clickCategory.emit(category)">{{ category.title }}</li>
       </ul>
     </div>
     <div class="footer-item">
       <h1>Siga</h1>
       <ul>
         <li>
-          <i nz-icon nzType="facebook" nzTheme="outline"></i> Facebook
+          <i nz-icon nzType="facebook" nzTheme="outline"></i>
+          <a href="https://www.facebook.com/mjvinnovation/" target="_blank">Facebook</a>
         </li>
         <li>
-          <i nz-icon nzType="instagram" nzTheme="outline"></i> Instagram
+          <i nz-icon nzType="instagram" nzTheme="outline"></i>
+          <a href="https://www.instagram.com/mjvinnovation/" target="_blank">Instagram</a>
         </li>
         <li>
-          <i nz-icon nzType="twitter" nzTheme="outline"></i> Twitter
+          <i nz-icon nzType="twitter" nzTheme="outline"></i>
+          <a href="https://twitter.com/MJVinnovation" target="_blank">Twitter</a>
         </li>
       </ul>
     </div>

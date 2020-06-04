@@ -2,6 +2,8 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 import { CategoryModel } from '../../../shared/models/category.model';
 
+import { StoreSandbox } from '../../store.sandbox';
+
 @Component({
   selector: "app-store-header",
   templateUrl: "./store-header.component.html",
@@ -12,9 +14,14 @@ export class StoreHeaderComponent implements OnInit {
 
   @Output() clickCategory = new EventEmitter<CategoryModel>();
 
-  menu = false;
+  public menu = false;
 
-  constructor() {}
+  constructor(public storeSandbox: StoreSandbox) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+
+  filterProduct(term) {
+    this.storeSandbox.filterTerm = term;
+  }
 }

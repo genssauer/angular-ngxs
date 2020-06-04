@@ -5,4 +5,5 @@
     <app-store-content></app-store-content>
 </div>
 
-<app-store-footer></app-store-footer>
+<app-store-footer [categories]="categoriesCollection$ | async" 
+                  (clickCategory)="changeCategory($event)"></app-store-footer>
