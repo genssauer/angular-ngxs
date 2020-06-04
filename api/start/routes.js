@@ -25,19 +25,15 @@ Route.get('files/:id', 'FileController.show')
 
 Route.group(() => {
   Route.post('files', 'FileController.store')
+  
+  Route.post('categories', 'CategoryController.store').validator('Category')
+  Route.patch('categories/:id', 'CategoryController.update').validator('Category')
+  Route.delete('categories/:id', 'CategoryController.destroy')
 
-  Route.resource('categories', 'CategoryController').apiOnly().validator(new Map([
-    [
-      ['categories.store'],
-      ['Category']
-    ]
-  ]))
-  Route.resource('products', 'ProductController').apiOnly().validator(new Map([
-    [
-      ['products.store'],
-      ['Product']
-    ]
-  ]))
+  Route.post('products', 'ProductController.store').validator('Product')
+  Route.patch('products/:id', 'ProductController.update').validator('Product')
+  Route.delete('products/:id', 'ProductController.destroy')
+
   Route.resource('users', 'UserController').apiOnly().validator(new Map([
     [
       ['users.store'],
@@ -45,3 +41,9 @@ Route.group(() => {
     ]
   ]))
 }).middleware(['auth'])
+
+Route.get('categories', 'CategoryController.index')
+Route.get('categories/:id', 'CategoryController.show')
+
+Route.get('products', 'ProductController.index')
+Route.get('products/:id', 'ProductController.show')
