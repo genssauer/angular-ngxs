@@ -15,7 +15,10 @@ export class ProductResource {
 
   constructor(private http: HttpClient) {}
 
-  find(): Observable<ProductModel[]> {
+  find(category?: number): Observable<ProductModel[]> {
+    if (category && category != 0) {
+      return this.http.get<ProductModel[]>(`${this.url}?category_id=${category}`);
+    }
     return this.http.get<ProductModel[]>(this.url);
   }
 
