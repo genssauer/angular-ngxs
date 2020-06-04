@@ -25,10 +25,13 @@ class ProductController {
     view
   }) {
     const {
-      page
+      page,
+      category_id
     } = request.get()
 
-    const products = await Product.query().with('user').with('category').with('file').paginate(page)
+    const products = (category_id) ?
+      await Product.query().where({category_id}).with('user').with('category').with('file').paginate(page) :
+      await Product.query().with('user').with('category').with('file').paginate(page)
 
     return products
   }
