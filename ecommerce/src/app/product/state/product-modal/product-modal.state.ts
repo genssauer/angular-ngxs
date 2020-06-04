@@ -16,15 +16,12 @@ export class ProductModalState {
   constructor(private productModalService: ProductModalService) {}
 
   @Action(OpenProductModal)
-  openModalProfile(
-    ctx: StateContext<ProductModalStateModel>,
-    { payload }: OpenProductModal
-  ) {
+  openProductModal(ctx: StateContext<ProductModalStateModel>, { payload }: OpenProductModal) {
     this.productModalService.open(payload.editing);
   }
 
   @Action(CloseProductModal)
-  closeModalProfile(ctx: StateContext<ProductModalStateModel>) {
+  closeProductModal(ctx: StateContext<ProductModalStateModel>) {
     this.productModalService.close();
   }
 }

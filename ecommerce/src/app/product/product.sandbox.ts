@@ -24,9 +24,7 @@ import {
   providedIn: 'root',
 })
 export class ProductSandbox {
-  @Select(ProductSelectors.entities) productsCollection$: Observable<
-    ProductModel[]
-  >;
+  @Select(ProductSelectors.entities) productsCollection$: Observable<ProductModel[]>;
 
   @Select(ProductSelectors.selected) productSelected$: Observable<ProductModel>;
 
@@ -38,8 +36,8 @@ export class ProductSandbox {
     this.store.dispatch(new SelectProduct(product));
   }
 
-  public loadProducts() {
-    this.store.dispatch(new LoadProducts());
+  public loadProducts(category?: number) {
+    this.store.dispatch(new LoadProducts(category));
   }
 
   public createProduct(product: ProductModel) {

@@ -8,6 +8,8 @@ export class SelectProduct {
 
 export class LoadProducts {
   static readonly type = '[Products] Load Products';
+
+  constructor(public payload?: number) { }
 }
 
 export class LoadProductsSuccess {

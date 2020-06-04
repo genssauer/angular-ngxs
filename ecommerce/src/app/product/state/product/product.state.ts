@@ -68,17 +68,14 @@ export class ProductState {
   ) {}
 
   @Action(SelectProduct)
-  selectProduct(
-    ctx: StateContext<ProductStateModel>,
-    { payload }: SelectProduct
-  ) {
+  selectProduct(ctx: StateContext<ProductStateModel>, { payload }: SelectProduct) {
     NgxsEntityStateAdapter.select(payload, ctx);
   }
 
   @Action(LoadProducts)
-  loadProducts(ctx: StateContext<ProductStateModel>) {
+  loadProducts(ctx: StateContext<ProductStateModel>, { payload }: LoadProducts) {
     NgxsEntityStateAdapter.startLoading(ctx);
-    return this.ProductResource.find().pipe(
+    return this.ProductResource.find(payload).pipe(
       map((product: ProductModel[]) =>
         ctx.dispatch(new LoadProductsSuccess(product))
       ),
@@ -93,10 +90,7 @@ export class ProductState {
   }
 
   @Action(LoadProductsFail)
-  loadProductsFail(
-    ctx: StateContext<ProductStateModel>,
-    { payload }: LoadProductsFail
-  ) {
+  loadProductsFail(ctx: StateContext<ProductStateModel>, { payload }: LoadProductsFail) {
     console.warn(`Occorreu um erro ao carregar ${payload}`);
     NgxsEntityStateAdapter.stopLoading(ctx);
   }
@@ -113,10 +107,7 @@ export class ProductState {
   }
 
   @Action(CreateProductSuccess)
-  createProductSuccess(
-    ctx: StateContext<ProductStateModel>,
-    { payload }: CreateProductSuccess
-  ) {
+  createProductSuccess(ctx: StateContext<ProductStateModel>, { payload }: CreateProductSuccess) {
     NgxsEntityStateAdapter.addOne(payload, ctx);
     NgxsEntityStateAdapter.stopLoading(ctx);
     this.message.success('Produto cadastrado com sucesso!', {
@@ -126,10 +117,7 @@ export class ProductState {
   }
 
   @Action(CreateProductFail)
-  createProductFail(
-    ctx: StateContext<ProductStateModel>,
-    { payload }: CreateProductFail
-  ) {
+  createProductFail(ctx: StateContext<ProductStateModel>, { payload }: CreateProductFail) {
     console.warn(`Occorreu um erro ao criar ${payload}`);
     NgxsEntityStateAdapter.stopLoading(ctx);
   }
@@ -146,10 +134,7 @@ export class ProductState {
   }
 
   @Action(UpdateProductSuccess)
-  updateProductSuccess(
-    ctx: StateContext<ProductStateModel>,
-    { payload }: UpdateProductSuccess
-  ) {
+  updateProductSuccess(ctx: StateContext<ProductStateModel>, { payload }: UpdateProductSuccess) {
     NgxsEntityStateAdapter.updateOne(payload, ctx);
     NgxsEntityStateAdapter.stopLoading(ctx);
     this.message.success('Produto atualizado com sucesso!', {
@@ -159,10 +144,7 @@ export class ProductState {
   }
 
   @Action(UpdateProductFail)
-  updateProductFail(
-    ctx: StateContext<ProductStateModel>,
-    { payload }: UpdateProductFail
-  ) {
+  updateProductFail(ctx: StateContext<ProductStateModel>, { payload }: UpdateProductFail) {
     console.warn(`Occorreu um erro ao atualizar ${payload}`);
     NgxsEntityStateAdapter.stopLoading(ctx);
   }
@@ -179,20 +161,14 @@ export class ProductState {
   }
 
   @Action(DeleteProductSuccess)
-  deleteProductSuccess(
-    ctx: StateContext<ProductStateModel>,
-    { payload }: DeleteProductSuccess
-  ) {
+  deleteProductSuccess(ctx: StateContext<ProductStateModel>, { payload }: DeleteProductSuccess) {
     NgxsEntityStateAdapter.removeOne(payload, ctx);
     NgxsEntityStateAdapter.stopLoading(ctx);
     this.message.success('Produto excluído com sucesso!', { nzDuration: 5000 });
   }
 
   @Action(DeleteProductFail)
-  deleteProductFail(
-    ctx: StateContext<ProductStateModel>,
-    { payload }: DeleteProductFail
-  ) {
+  deleteProductFail(ctx: StateContext<ProductStateModel>, { payload }: DeleteProductFail) {
     console.warn(`Occorreu um erro ao deletar ${payload}`);
     NgxsEntityStateAdapter.stopLoading(ctx);
   }
