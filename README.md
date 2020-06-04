@@ -3,10 +3,10 @@ MJV Developer Test
 
 ## Docker
 
-Baixe e instale o Docker em https://www.docker.com/
+Baixe e instale o Docker em https://www.docker.com/.
 
-Após instalado abra o terminal e execute `docker run --name ecommerce -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres`.
-Execute `docker ps` para exibir os Containers ativos.
+Após instalado abra o terminal e execute `docker run --name ecommerce -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres`;
+Execute `docker ps` para exibir os Containers ativos;
 Execute `docker start ecommerce` caso não esteja ativo.
 
 ## Executando a API
