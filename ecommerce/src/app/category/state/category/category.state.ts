@@ -70,10 +70,7 @@ export class CategoryState {
   ) {}
 
   @Action(SelectCategory)
-  selectCategory(
-    ctx: StateContext<CategoryStateModel>,
-    { payload }: SelectCategory
-  ) {
+  selectCategory(ctx: StateContext<CategoryStateModel>, { payload }: SelectCategory) {
     NgxsEntityStateAdapter.select(payload, ctx);
   }
 
@@ -95,19 +92,13 @@ export class CategoryState {
   }
 
   @Action(LoadCategoriesFail)
-  loadCategorysFail(
-    ctx: StateContext<CategoryStateModel>,
-    { payload }: LoadCategoriesFail
-  ) {
+  loadCategorysFail(ctx: StateContext<CategoryStateModel>, { payload }: LoadCategoriesFail) {
     console.warn(`Occorreu um erro ao carregar ${payload}`);
     NgxsEntityStateAdapter.stopLoading(ctx);
   }
 
   @Action(CreateCategory)
-  createCategory(
-    ctx: StateContext<CategoryStateModel>,
-    action: CreateCategory
-  ) {
+  createCategory(ctx: StateContext<CategoryStateModel>, action: CreateCategory) {
     NgxsEntityStateAdapter.startLoading(ctx);
     return this.CategoryResource.create(action.payload).pipe(
       map((Category: CategoryModel) =>
@@ -118,10 +109,7 @@ export class CategoryState {
   }
 
   @Action(CreateCategorySuccess)
-  createCategorySuccess(
-    ctx: StateContext<CategoryStateModel>,
-    { payload }: CreateCategorySuccess
-  ) {
+  createCategorySuccess(ctx: StateContext<CategoryStateModel>, { payload }: CreateCategorySuccess) {
     NgxsEntityStateAdapter.addOne(payload, ctx);
     NgxsEntityStateAdapter.stopLoading(ctx);
     this.message.success('Categoria cadastrada com sucesso!', {
@@ -131,19 +119,13 @@ export class CategoryState {
   }
 
   @Action(CreateCategoryFail)
-  createCategoryFail(
-    ctx: StateContext<CategoryStateModel>,
-    { payload }: CreateCategoryFail
-  ) {
+  createCategoryFail(ctx: StateContext<CategoryStateModel>, { payload }: CreateCategoryFail) {
     console.warn(`Occorreu um erro ao criar ${payload}`);
     NgxsEntityStateAdapter.stopLoading(ctx);
   }
 
   @Action(UpdateCategory)
-  updateCategory(
-    ctx: StateContext<CategoryStateModel>,
-    action: UpdateCategory
-  ) {
+  updateCategory(ctx: StateContext<CategoryStateModel>, action: UpdateCategory) {
     ctx.patchState({ isLoading: true });
     return this.CategoryResource.update(action.payload).pipe(
       map((Category: CategoryModel) =>
@@ -154,10 +136,7 @@ export class CategoryState {
   }
 
   @Action(UpdateCategorySuccess)
-  updateCategorySuccess(
-    ctx: StateContext<CategoryStateModel>,
-    { payload }: UpdateCategorySuccess
-  ) {
+  updateCategorySuccess(ctx: StateContext<CategoryStateModel>, { payload }: UpdateCategorySuccess) {
     NgxsEntityStateAdapter.updateOne(payload, ctx);
     NgxsEntityStateAdapter.stopLoading(ctx);
     this.message.success('Categoria atualizada com sucesso!', {
@@ -167,19 +146,13 @@ export class CategoryState {
   }
 
   @Action(UpdateCategoryFail)
-  updateCategoryFail(
-    ctx: StateContext<CategoryStateModel>,
-    { payload }: UpdateCategoryFail
-  ) {
+  updateCategoryFail(ctx: StateContext<CategoryStateModel>, { payload }: UpdateCategoryFail) {
     console.warn(`Occorreu um erro ao atualizar ${payload}`);
     NgxsEntityStateAdapter.stopLoading(ctx);
   }
 
   @Action(DeleteCategory)
-  deleteCategory(
-    ctx: StateContext<CategoryStateModel>,
-    action: DeleteCategory
-  ) {
+  deleteCategory(ctx: StateContext<CategoryStateModel>, action: DeleteCategory) {
     NgxsEntityStateAdapter.startLoading(ctx);
     return this.CategoryResource.destroy(action.payload).pipe(
       map((Category: CategoryModel) =>
@@ -190,10 +163,7 @@ export class CategoryState {
   }
 
   @Action(DeleteCategorySuccess)
-  deleteCategorySuccess(
-    ctx: StateContext<CategoryStateModel>,
-    { payload }: DeleteCategorySuccess
-  ) {
+  deleteCategorySuccess(ctx: StateContext<CategoryStateModel>, { payload }: DeleteCategorySuccess) {
     NgxsEntityStateAdapter.removeOne(payload, ctx);
     NgxsEntityStateAdapter.stopLoading(ctx);
     this.message.success('Categoria excluída com sucesso!', {
@@ -202,10 +172,7 @@ export class CategoryState {
   }
 
   @Action(DeleteCategoryFail)
-  deleteCategoryFail(
-    ctx: StateContext<CategoryStateModel>,
-    { payload }: DeleteCategoryFail
-  ) {
+  deleteCategoryFail(ctx: StateContext<CategoryStateModel>, { payload }: DeleteCategoryFail) {
     console.warn(`Occorreu um erro ao deletar ${payload}`);
     NgxsEntityStateAdapter.stopLoading(ctx);
   }

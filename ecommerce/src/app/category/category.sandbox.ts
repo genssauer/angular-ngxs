@@ -24,17 +24,11 @@ import {
   providedIn: 'root',
 })
 export class CategorySandbox {
-  @Select(CategorySelectors.entities) categoriesCollection$: Observable<
-    CategoryModel[]
-  >;
+  @Select(CategorySelectors.entities) categoriesCollection$: Observable<CategoryModel[]>;
 
-  @Select(CategorySelectors.parents) parentCategoriesCollection$: Observable<
-    CategoryModel[]
-  >;
+  @Select(CategorySelectors.parents) parentCategoriesCollection$: Observable<CategoryModel[]>;
 
-  @Select(CategorySelectors.selected) categorySelected$: Observable<
-    CategoryModel
-  >;
+  @Select(CategorySelectors.selected) categorySelected$: Observable<CategoryModel>;
 
   @Select(CategorySelectors.isLoading) isLoadingCategory$: Observable<boolean>;
 

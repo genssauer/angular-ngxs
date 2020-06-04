@@ -19,15 +19,12 @@ export class CategoryModalState {
   constructor(private categoryModalService: CategoryModalService) {}
 
   @Action(OpenCategoryModal)
-  openModalProfile(
-    ctx: StateContext<CategoryModalStateModel>,
-    { payload }: OpenCategoryModal
-  ) {
+  openCategoryModal(ctx: StateContext<CategoryModalStateModel>, { payload }: OpenCategoryModal) {
     this.categoryModalService.open(payload.editing);
   }
 
   @Action(CloseCategoryModal)
-  closeModalProfile(ctx: StateContext<CategoryModalStateModel>) {
+  closeCategoryModal(ctx: StateContext<CategoryModalStateModel>) {
     this.categoryModalService.close();
   }
 }
